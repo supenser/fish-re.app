@@ -1,0 +1,39 @@
+/* ユーザー管理登録 */
+
+
+.new_main{
+  max-width: 100%;
+  height: 80vh;
+  background-image: linear-gradient(0deg, #494f4a, #08192d);
+  padding: 2rem;
+  font-family: "游明朝";
+}
+
+.new_inner{
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.new_form__wrapper{
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.n_field{
+  padding: 1rem;
+  color: #fff;
+}
+
+.form__btn{
+  display: block;
+  margin: auto;
+  background: #FFC408;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+  font-weight: bold;
+  font-family: "游明朝";
+}
