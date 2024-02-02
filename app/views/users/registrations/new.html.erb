@@ -1,0 +1,38 @@
+<%= render "shared/second-header" %>
+
+<div class="new_main">
+  <div class="new_inner">
+    <div class="new_form__wrapper">
+      <h2 class="new_page-heading">ユーザー新規登録</h2>
+
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+
+        <div class="n_field">
+          <%= f.label :name, "お名前",class: :form__text %><br />
+          <%= f.text_field :name, id:"user_name",class: :form__box %>
+        </div>
+
+        <div class="n_field">
+          <%= f.label :email, "メールアドレス",class: :form__text %><br />
+          <%= f.email_field :email, id:"user_email", autofocus: true, autocomplete: "email",class: :form__box %>
+        </div>
+
+        <div class="n_field">
+          <%= f.label :password, "パスワード（6文字以上）", class: :form__text %><br />
+          <%= f.password_field :password, id:"user_password", autocomplete: "new-password",class: :form__box %>
+        </div>
+
+        <div class="n_field">
+          <%= f.label :password_confirmation, "パスワード再入力",class: :form__text %><br />
+          <%= f.password_field :password_confirmation, id:"user_password_confirmation", autocomplete: "new-password",class: :form__box %>
+        </div>
+
+        <div class="n_actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

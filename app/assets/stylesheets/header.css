@@ -1,0 +1,38 @@
+/******************************************************** 
+　ヘッダー
+********************************************************/
+header.header01 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: linear-gradient(225deg,#FCFAF2,#91989F);
+  height: 4rem;
+  font-family: "游明朝";
+}
+
+.header_logo {
+  width: 100px;
+  height: 30px;
+  object-fit: contain;
+  font-size: xX-large;
+}
+
+.header_item {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.header_list {
+  padding-left: 2rem;
+}
+
+.list_contact {
+  display: inline-block;
+  background: #FFC408;
+  color: #fff;
+  font-size: 0.9rem;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+}
