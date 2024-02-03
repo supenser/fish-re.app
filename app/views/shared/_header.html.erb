@@ -10,7 +10,7 @@
           <li><%= link_to '予約はこちら', "#", class: "list_contact" %></li>
           <% elsif admin_signed_in? %>
           <li><%= link_to "ログアウト", destroy_admin_session_path, data: { turbo_method: :delete }, class: "header_list" %></li>
-          <li><%= link_to '出品はこちら', "#", class: "list_contact" %></li>
+          <li><%= link_to '出品はこちら', new_item_path, class: "list_contact" %></li>
         <% else %>
           <li><%= link_to '管理者ログイン', new_admin_session_path, class: "header_list" %></li>
           <li><%= link_to '新規登録', new_user_registration_path, class: "header_list" %></li>
