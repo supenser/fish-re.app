@@ -7,7 +7,7 @@
           <li><%= link_to '万両の歴史', "#", class: "header_list" %></li>
           <li><%= link_to "#{current_user.name}様", "#", class: "header_list" %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "header_list" %></li>
-          <li><%= link_to '予約はこちら', "#", class: "list_contact" %></li>
+          <li><%= link_to '予約はこちら', reservations_path, class: "list_contact" %></li>
           <% elsif admin_signed_in? %>
           <li><%= link_to "ログアウト", destroy_admin_session_path, data: { turbo_method: :delete }, class: "header_list" %></li>
           <li><%= link_to '出品はこちら', new_item_path, class: "list_contact" %></li>
