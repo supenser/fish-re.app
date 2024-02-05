@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_05_052513) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -64,6 +64,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
     t.index ["admin_id"], name: "index_items_on_admin_id"
   end
 
+  create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "reservation_id", null: false
+    t.integer "fish_recipe_id", null: false
+    t.string "telephone", null: false
+    t.bigint "user_id", null: false
+    t.bigint "admin_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_reservations_on_admin_id"
+    t.index ["item_id"], name: "index_reservations_on_item_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -80,4 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "admins"
+  add_foreign_key "reservations", "admins"
+  add_foreign_key "reservations", "items"
+  add_foreign_key "reservations", "users"
 end
