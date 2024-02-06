@@ -16,9 +16,33 @@
                     <div class='item-price'>
                     <%= i.price %>円
                     </div>
+                    <div class='reservation-box'>
+                    予約する<input type="checkbox" class='item-reservation'>
+                    </div>
                 </li>
             <% end %>
           </ul>
     </div>
+
+    <%= form_with model: @reservation, local: true do |f| %>
+    <div class="re-">
+      <div class="re-">商品の詳細</div>
+      <div class="re-">
+        <div class="re-">
+          ご来店予定時間
+          <span class="re-">必須</span>
+        </div>
+        <%= f.collection_select(:reservation_id, FishFresh.all, :id, :name, {}, {class:"select-box", id:"fish-fresh"}) %>
+        <div class="re-">
+          魚の状態
+          <span class="re-">必須</span>
+        </div>
+        <%= f.collection_select(:fish_recipe_id, FishRecipe.all, :id, :name, {}, {class:"select-box", id:"fish-recipe"}) %>
+      </div>
+      <%#= f.telephone :telephone, class:"re-", id:"re-", placeholder:"例）090-1111-2222"  %>
+    </div>
+    <% end %>
+
+
   </div>
 <%= render "shared/footer" %>
