@@ -17,9 +17,8 @@
                     <div class='item-price'>
                     <%= i.price %>円
                     </div>
-                    
                     <div class='reservation-box'>
-                    <%= f.check_box :item_id %>予約する
+                    <%= f.check_box :item_id,{ checked: @reservation.item_id.present? },[], false %>予約する
                     </div>
                 </li>
             <% end %>
