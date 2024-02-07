@@ -3,7 +3,7 @@
 .items-main{
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(0deg, #08192d, #08192d);
+  background-image: url(./texture.png);
   font-family: "游明朝";
   color: #fff;
 }
@@ -51,20 +51,29 @@ text-align: center;
   text-align: center;
 }
 
+.re-box{
+  margin-bottom: 2rem;
+}
+
 .sell-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
-  width: 100%;
+  width: 200px;
   height: 50px;
   font-size: 14px;
   margin-bottom: 4vh;
+  padding: 1rem;
+  font-family: "游明朝";
 }
 
 .back-btn {
+  width: 200px;
+  height: 50px;
   background: #aaa;
   border: 1px solid #aaa;
   color: #fff;
-  padding: 15px 35%;
+  padding: 1rem;
   text-decoration: none;
+  font-family: "游明朝";
 }

@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
   <div class="fv-container">
-    
+    <%= form_with model: @reservation, local: true do |f| %>
       <%# 商品一覧 %>
     <div class='item-contents'>
         <h2 class='title'>＜本日の仕入れ一覧＞</h2>
@@ -17,37 +17,35 @@
                     <div class='item-price'>
                     <%= i.price %>円
                     </div>
+                    
                     <div class='reservation-box'>
-                    予約する<input type="checkbox" class='item-reservation'>
+                    <%= f.check_box :item_id %>予約する
                     </div>
                 </li>
             <% end %>
           </ul>
     </div>
 
-    <%= form_with model: @reservation, local: true do |f| %>
-    <div class="re-">
-      <div class="re-">商品の詳細</div>
+    <div class="items-sell-main">
       <div class="re-">
-        <div class="re-">
+        <div class="items-sell-title">
           ご来店予定時間
-          <span class="re-">必須</span>
+          <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:reserve_id, Reserve.all, :id, :name, {}, {class:"select-box", id:"reserve"}) %>
-        <div class="re-">
+        <div class="items-sell-title">
           魚の状態
-          <span class="re-">必須</span>
+          <span class="indispensable">必須</span>
         </div>
         <%= f.collection_select(:fish_recipe_id, FishRecipe.all, :id, :name, {}, {class:"select-box", id:"fish-recipe"}) %>
       </div>
-      <div class='re-'>連絡先
-      <span class="re-">必須</span>
+      <div class='items-sell-title'>連絡先
+      <span class="indispensable">必須</span>
       </div>
-      <%= f.text_field :telephone, class:"re-", id:"re-", placeholder:"例）090-1111-2222"  %>
+      <%= f.text_field :telephone, class:"re-box", id:"re-", placeholder:"例）090-1111-2222"  %>
       <div class="sell-btn-contents">
       <%= f.submit "予約完了する" ,class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
-    </div>
     </div>
     <% end %>
 

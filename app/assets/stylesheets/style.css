@@ -61,7 +61,7 @@ a {
 .list{
   margin: 1rem;
   padding: 1rem;
-  background-color: #5f6368;
+  background-image: url(./texture2.png);
   border-radius: 30px;
 }
 
