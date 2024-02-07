@@ -1,0 +1,70 @@
+/* 管理者出品登録 */
+
+.items-main{
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(0deg, #08192d, #08192d);
+  font-family: "游明朝";
+  color: #fff;
+}
+
+.items-sell-main{
+text-align: center;
+}
+
+.items-sell-title{
+  font-size: xx-large;
+  padding: 1rem;
+}
+
+.indispensable{
+  color: red;
+  font-size: small;
+}
+
+.sub-text{
+  display: flex;
+  justify-content: center;
+}
+
+.twin-text{
+  padding: 2rem;
+}
+
+.input-title{
+  padding: 1rem;
+  font-size: larger;
+}
+
+.price-content{
+  margin: 1rem;
+}
+
+.price-input{
+  height: 30px;
+  text-align: right;
+
+}
+
+.sell-btn-contents {
+  width: 100%;
+  text-align: center;
+}
+
+.sell-btn {
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  font-size: 14px;
+  margin-bottom: 4vh;
+}
+
+.back-btn {
+  background: #aaa;
+  border: 1px solid #aaa;
+  color: #fff;
+  padding: 15px 35%;
+  text-decoration: none;
+}

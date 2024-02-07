@@ -4,6 +4,7 @@
       <%# 商品一覧 %>
     <div class='item-contents'>
         <h2 class='title'>＜本日の仕入れ一覧＞</h2>
+        <div class='sub-text'>（予約する）にチェックを入れて下段部の必要事項を入力後、予約完了ボタンをクリックしてください。</div>
           <ul class='item-lists'>
             <% @items.each do |i| %>
                 <li class='list'>
@@ -32,14 +33,21 @@
           ご来店予定時間
           <span class="re-">必須</span>
         </div>
-        <%= f.collection_select(:reservation_id, FishFresh.all, :id, :name, {}, {class:"select-box", id:"fish-fresh"}) %>
+        <%= f.collection_select(:reserve_id, Reserve.all, :id, :name, {}, {class:"select-box", id:"reserve"}) %>
         <div class="re-">
           魚の状態
           <span class="re-">必須</span>
         </div>
         <%= f.collection_select(:fish_recipe_id, FishRecipe.all, :id, :name, {}, {class:"select-box", id:"fish-recipe"}) %>
       </div>
-      <%#= f.telephone :telephone, class:"re-", id:"re-", placeholder:"例）090-1111-2222"  %>
+      <div class='re-'>連絡先
+      <span class="re-">必須</span>
+      </div>
+      <%= f.text_field :telephone, class:"re-", id:"re-", placeholder:"例）090-1111-2222"  %>
+      <div class="sell-btn-contents">
+      <%= f.submit "予約完了する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
     </div>
     <% end %>
 

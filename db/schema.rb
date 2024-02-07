@@ -65,7 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_05_052513) do
   end
 
   create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "reservation_id", null: false
+    t.integer "reserve_id", null: false
     t.integer "fish_recipe_id", null: false
     t.string "telephone", null: false
     t.bigint "user_id", null: false
