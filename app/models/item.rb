@@ -1,5 +1,8 @@
 class Item < ApplicationRecord
+  has_many :item_reservations
+  has_many :reservations, through: :item_reservations
   belongs_to :admin
+  belongs_to :user
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions

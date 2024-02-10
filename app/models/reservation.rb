@@ -1,4 +1,6 @@
 class Reservation < ApplicationRecord
+  has_many :item_reservations
+  has_many :items, through: :item_reservations
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :reserve
