@@ -77,12 +77,10 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_09_233308) do
     t.integer "reserve_id", null: false
     t.integer "fish_recipe_id", null: false
     t.string "telephone", null: false
-    t.bigint "user_id", null: false
     t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_reservations_on_item_id"
-    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -104,5 +102,4 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_09_233308) do
   add_foreign_key "item_reservations", "reservations"
   add_foreign_key "items", "admins"
   add_foreign_key "reservations", "items"
-  add_foreign_key "reservations", "users"
 end

@@ -7,4 +7,5 @@ class User < ApplicationRecord
          validates :name, presence: true
          has_many :item_reservations
          has_many :reservations, through: :item_reservations
+         has_many :items
 end
