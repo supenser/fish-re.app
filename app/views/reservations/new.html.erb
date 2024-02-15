@@ -1,0 +1,53 @@
+<%= render "shared/header" %>
+  <div class="fv-container">
+    <%= form_with model: [@item, @reservation], local: true do |f| %>
+      <%# 商品一覧 %>
+    <div class='item-contents'>
+        <h2 class='title'>＜本日の仕入れ一覧＞</h2>
+        <div class='sub-text'>（予約する）にチェックを入れて下段部の必要事項を入力後、予約完了ボタンをクリックしてください。</div>
+          <ul class='item-lists'>
+            <% @items.each do |i| %>
+                <li class='list'>
+                    <div class='item-img-content'>
+                    <%= image_tag i.image, class: "item-img" %>
+                    </div>
+                    <div class='item-name'>
+                    <%= i.title %>
+                    </div>
+                    <div class='item-price'>
+                    <%= i.price %>円
+                    </div>
+                    <div class='reservation-box'>
+                    <%= f.check_box :item_id, { multiple: true }, i.id, nil %>予約する
+                    </div>
+                </li>
+            <% end %>
+          </ul>
+    </div>
+
+    <div class="items-sell-main">
+      <div class="re-">
+        <div class="items-sell-title">
+          ご来店予定時間
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:reserve_id, Reserve.all, :id, :name, {}, {class:"select-box", id:"reserve"}) %>
+        <div class="items-sell-title">
+          魚の状態
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:fish_recipe_id, FishRecipe.all, :id, :name, {}, {class:"select-box", id:"fish-recipe"}) %>
+      </div>
+      <div class='items-sell-title'>連絡先
+      <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_field :telephone, class:"re-box", id:"re-", placeholder:"例）090-1111-2222"  %>
+      <div class="sell-btn-contents">
+      <%= f.submit "予約完了する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <% end %>
+
+
+  </div>
+<%= render "shared/footer" %>

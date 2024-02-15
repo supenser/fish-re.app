@@ -12,10 +12,8 @@ header.header01 {
 }
 
 .header_logo {
-  width: 100px;
-  height: 30px;
-  object-fit: contain;
   font-size: xX-large;
+  font-weight: bold;
 }
 
 .header_item {
@@ -25,7 +23,7 @@ header.header01 {
 }
 
 .header_list {
-  padding-left: 2rem;
+  padding: 1rem;
 }
 
 .list_contact {

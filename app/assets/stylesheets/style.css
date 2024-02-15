@@ -34,42 +34,68 @@ a {
   color: #3b4043;
 }
 
-
-
-
-
-
-
-
-
 /******************************************************** 
 　メイン
 ********************************************************/
 
 .fv-container {
   width: 100%;
-  height: 80vh;
-  background-image: linear-gradient(0deg, #494f4a, #08192d);
+  height: 100%;
+  background-image: url(./texture.png);
   font-family: "游明朝";
   color: #fff;
+}
+ 
+.title{
+  text-align: center;
+  font-size: 33px;
+  padding: 0.5rem;
 }
 
 .item-lists{
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
 }
 
-.item-img-content{
-  padding: 2rem;
+.list{
+  margin: 1rem;
+  padding: 1rem;
+  background-image: url(./texture2.png);
+  border-radius: 30px;
 }
 
 .item-img{
-  width: 200px;
-  height: 50vh;
+  width: 100%;
+  height: 400px;
 }
 
+.item-name{
+  font-weight: bold;
+  font-size: 33px;
+  text-align: center;
+}
 
+.item-price{
+  font-weight: bold;
+  font-size: 33px;
+  text-align: center;
+}
 
+.reservation-box{
+  text-align: center;
+  background: #FFC408;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  padding: 0.5rem 1.2rem;
+}
+
+.item-reservation{
+  text-align: center;
+}
+
+.sub-text{
+  text-align: center;
+}
 

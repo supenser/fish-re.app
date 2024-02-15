@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
+ActiveRecord::Schema[7.0].define(version: 2024_02_09_233308) do
   create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -52,6 +52,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "item_reservations", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_reservations_on_item_id"
+    t.index ["reservation_id"], name: "index_item_reservations_on_reservation_id"
+  end
+
   create_table "items", charset: "utf8mb4", force: :cascade do |t|
     t.string "title", null: false
     t.text "title_text", null: false
@@ -62,6 +71,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_items_on_admin_id"
+  end
+
+  create_table "reservations", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "reserve_id", null: false
+    t.integer "fish_recipe_id", null: false
+    t.string "telephone", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_reservations_on_item_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -79,5 +98,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_03_065032) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "item_reservations", "items"
+  add_foreign_key "item_reservations", "reservations"
   add_foreign_key "items", "admins"
+  add_foreign_key "reservations", "items"
 end
