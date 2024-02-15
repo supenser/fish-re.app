@@ -1,24 +1,52 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<!-- usersテーブル -->
+| Column             | Type   | Options                   |
+|                    |        |                           |
+| name               | string | null: false               |
+| email              | string | null: false ,unique: true |
+| encrypted_password | string | null: false               |
 
-Things you may want to cover:
+### Association
+has_many :items
+has_many :reservations
 
-* Ruby version
+<!-- adminsテーブル -->
+| Column             | Type   | Options                   |
+|                    |        |                           |
+| name               | string | null: false               |
+| email              | string | null: false ,unique: true |
+| encrypted_password | string | null: false               |
 
-* System dependencies
+### Association
+has_many :items
+has_many :reservations
 
-* Configuration
+<!-- itemsテーブル -->
+| Column            | Type       | Options                       |
+|                   |            |                               |
+| title             | string     | null: false                   |
+| title_text        | text       | null: false                   |
+| fish_fresh_id     | integer    | null: false                   |
+| fish_recipe_id    | integer    | null: false                   |
+| price             | integer    | null: false                   |
+| admin             | references | null: false,foreign_key: true |
 
-* Database creation
+### Association
+belongs_to :admin
+has_many :reservations
+has_many :users
 
-* Database initialization
+<!-- reservationsテーブル -->
+| Column            | Type       | Options                       |
+|                   |            |                               |
+| reserve_id        | string     | null: false                   |
+| fish_recipe_id    | integer    | null: false                   |
+| telephone         | string     | null: false                   |
+| item              | references | null: false,foreign_key: true |
+| user              | references | null: false,foreign_key: true |
 
-* How to run the test suite
+### Association
+has_many   :items
+belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
